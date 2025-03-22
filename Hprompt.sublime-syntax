@@ -18,7 +18,7 @@ contexts:
       scope: entity.other.frontmatter.begin
       embed: scope:source.yaml
       embed_scope: meta.frontmatter.block
-      escape: ^---\s*$
+      escape: ^---\s*$|{{general_header}}
       escape_captures:
         0: entity.other.frontmatter.end
     # YAML block
