@@ -17,7 +17,7 @@ contexts:
     - match: \A---\s*$
       scope: entity.other.frontmatter.begin
       embed: scope:source.yaml
-      embed_scope: meta.frontmatter.block
+      embed_scope: meta.frontmatter.block markup.raw.frontmatter
       escape: ^---\s*$|{{general_header}}
       escape_captures:
         0: entity.other.frontmatter.end
