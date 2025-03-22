@@ -1,0 +1,14 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/syntax.html
+name: Handy Prompt (hprompt) YAML Block
+scope: source.yaml
+
+version: 2
+extends: Packages/YAML/YAML.sublime-syntax
+
+contexts:
+  prototype:
+    - meta_prepend: true
+    - match: \%\w+\%
+      scope: variable.parameter.input

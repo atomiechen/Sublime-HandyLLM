@@ -1,0 +1,72 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/syntax.html
+name: Handy Prompt (hprompt)
+file_extensions:
+  - hprompt
+  - hpr
+scope: source.hprompt
+
+variables:
+  general_header: (?=^(\$\w+\$)[^\S\r\n]*({[^{}]*?})?[^\S\r\n]*$)
+  yaml_header: (?=^(\$\w+\$)[^\S\r\n]*({[^{}]*?(?:type\s*=|(?<=\s|{)(?:tool|array)(?=\s|}))[^{}]*})[^\S\r\n]*$)
+
+contexts:
+  main:
+    # frontmatter
+    - match: \A---\s*$
+      scope: entity.other.frontmatter.begin
+      embed: scope:source.yaml
+      embed_scope: meta.frontmatter.block
+      escape: ^---\s*$
+      escape_captures:
+        0: entity.other.frontmatter.end
+    # YAML block
+    - match: '{{yaml_header}}'
+      push:
+        - block_yaml_body
+        - block_head
+    # Markdown block
+    - match: '{{general_header}}'
+      push:
+        - block_text_body
+        - block_head
+    # plain text
+    - match: .*
+      scope: meta.plain-text
+
+  block_head:
+    - meta_content_scope: meta.block.head
+    - match: \$\w+\$
+      scope: markup.heading
+    - match: '{'
+      push: extra_properties
+    - match: '$'
+      pop: true
+
+  extra_properties:
+    - meta_scope: meta.block.extra_properties
+    - match: (\w+)\s*=\s*("[^"]*"|\''[^\'']*\'')
+      captures:
+        1: entity.other.attribute-name
+        2: string.quoted
+    - match: (?<=\s|{)(tool|array)(?=\s|})
+      scope: keyword.other
+    - match: '}'
+      pop: true
+
+  block_text_body:
+    - match: .*
+      # embed: scope:text.html.markdown
+      embed: Packages/HandyLLM/Hprompt-md.sublime-syntax
+      embed_scope: meta.block.text
+      escape: '{{general_header}}'
+      pop: true
+
+  block_yaml_body:
+    - match: .*
+      # embed: scope:source.yaml
+      embed: Packages/HandyLLM/Hprompt-yaml.sublime-syntax
+      escape: '{{general_header}}'
+      embed_scope: meta.block.yaml
+      pop: true

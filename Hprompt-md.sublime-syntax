@@ -1,0 +1,14 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/syntax.html
+name: Handy Prompt (hprompt) Markdown Block
+scope: text.html.markdown
+
+version: 2
+extends: Packages/Markdown/Markdown.sublime-syntax
+
+contexts:
+  prototype:
+    - meta_prepend: true
+    - match: \%\w+\%
+      scope: variable.parameter.input
