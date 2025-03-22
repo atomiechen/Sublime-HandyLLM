@@ -1,11 +1,11 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/syntax.html
-name: Handy Prompt (hprompt) YAML Block
-scope: source.yaml
+scope: text.html.markdown
+hidden: true
 
 version: 2
-extends: Packages/YAML/YAML.sublime-syntax
+extends: Packages/Markdown/Markdown.sublime-syntax
 
 contexts:
   prototype:
