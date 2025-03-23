@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[\$${1:tool}\$ {tool_call_id="${2:call_xxxxx}"}
+${3:RESULT_HERE}
+$0]]></content>
+	<tabTrigger>$tool$</tabTrigger>
+	<scope>source.hprompt - meta.block.head - meta.frontmatter</scope>
+	<description>Tool call response</description>
+</snippet>

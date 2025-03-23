@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[\$${1:user}\$ {array}
+- text: ${2:What's in this audio?}
+  type: text
+- input_audio:
+    data: ${3:file://audio.mp3}
+    format: ${4:mp3}
+  type: input_audio
+$0]]></content>
+	<tabTrigger>$user$</tabTrigger>
+	<scope>source.hprompt - meta.block.head - meta.frontmatter</scope>
+	<description>User message with audio</description>
+</snippet>
