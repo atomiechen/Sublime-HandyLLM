@@ -1,0 +1,22 @@
+{
+	"cmd": ["python3", "-u", "-m", "handyllm", "hprompt", "$file"],
+	"selector": "source.hprompt",
+
+	"env": {"PYTHONIOENCODING": "utf-8"},
+
+	"windows": {
+		"cmd": ["py", "-u", "-m", "handyllm", "hprompt", "$file"],
+	},
+
+	"variants":
+	[
+		{
+			"name": "Verbose",
+			"cmd": ["python3", "-u", "-m", "handyllm", "hprompt", "-v", "$file"],
+
+			"windows": {
+				"cmd": ["py", "-u", "-m", "handyllm", "hprompt", "-v", "$file"],
+			}
+		}
+	]
+}
