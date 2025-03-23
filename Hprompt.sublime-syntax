@@ -21,6 +21,11 @@ contexts:
       escape: ^---\s*$|{{general_header}}
       escape_captures:
         0: meta.frontmatter.end entity.other.frontmatter.end
+    # match frontmatter at most once
+    - match: (?=.)
+      set: no_frontmatter
+
+  no_frontmatter:
     # YAML block
     - match: '{{yaml_header}}'
       push:
