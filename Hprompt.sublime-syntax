@@ -15,12 +15,12 @@ contexts:
   main:
     # frontmatter
     - match: \A---\s*$
-      scope: entity.other.frontmatter.begin
+      scope: meta.frontmatter.begin entity.other.frontmatter.begin
       embed: scope:source.yaml
       embed_scope: meta.frontmatter.block markup.raw.frontmatter
       escape: ^---\s*$|{{general_header}}
       escape_captures:
-        0: entity.other.frontmatter.end
+        0: meta.frontmatter.end entity.other.frontmatter.end
     # YAML block
     - match: '{{yaml_header}}'
       push:
