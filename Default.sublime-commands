@@ -1,0 +1,9 @@
+[
+  {
+    "caption": "HandyLLM: New Hprompt File",
+    "command": "handyllm_new_file",
+    "args": {
+      "action": "hprompt"
+    }
+  }
+]
