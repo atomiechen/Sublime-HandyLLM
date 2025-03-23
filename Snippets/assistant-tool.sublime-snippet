@@ -1,9 +1,9 @@
 <snippet>
-	<content><![CDATA[\$${1:assistant}\$ {${2:tool}}
+	<content><![CDATA[\$assistant\$ {tool}
 - function:
-    argument: '${3:\{\}}'
-    name: ${4:FUNCTION_NAME}
-  id: ${5:CALL_ID}
+    argument: '${1:\{\}}'
+    name: ${2:FUNCTION_NAME}
+  id: ${3:CALL_ID}
   type: function
 $0]]></content>
 	<tabTrigger>$assistant$</tabTrigger>

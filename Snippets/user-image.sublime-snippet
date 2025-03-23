@@ -1,9 +1,9 @@
 <snippet>
-	<content><![CDATA[\$${1:user}\$ {array}
-- text: ${2:What's in this image?}
+	<content><![CDATA[\$user\$ {array}
+- text: ${1:What's in this image?} # Your prompt
   type: text
 - image_url:
-    url: ${3:file://my_image.jpg}
+    url: ${2:file://my_image.jpg} # Local, remote file path or base64 string
   type: image_url
 $0]]></content>
 	<tabTrigger>$user$</tabTrigger>
