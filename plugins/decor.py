@@ -7,6 +7,13 @@ from .utils import settings_on_change
 handyllm_settings = sublime.load_settings("HandyLLM.sublime-settings")
 
 
+class SettingKeys:
+	ENABLE_BH = "enable_decor_block_head"
+	ENABLE_FM = "enable_decor_frontmatter"
+	BH_STYLE = "decor_block_head_style"
+	CUSTOM_BH = "custom_decor_block_head"
+
+
 class Core:
 	setting_enable_key = ""
 	region_key = ""
@@ -35,7 +42,7 @@ class Core:
 
 
 class CoreDecorBlockHead(Core):
-	setting_enable_key = "enable_decor_block_head"
+	setting_enable_key = SettingKeys.ENABLE_BH
 	region_key = "block_head"
 	selector = "meta.block.head"
 
@@ -45,13 +52,24 @@ class CoreDecorBlockHead(Core):
 			regions=regions,
 			scope="meta.block.head",
 			flags=sublime.HIDDEN,
-			annotations=['————————']*len(regions),
+			annotations=[self.get_annotation_str()]*len(regions),
 			annotation_color='#fff0',
 		)
 
+	@staticmethod
+	def get_annotation_str():
+		decor_style = handyllm_settings.get(SettingKeys.BH_STYLE)
+		if decor_style == "dash":
+			return "————————"
+		elif decor_style == "custom":
+			return handyllm_settings.get(SettingKeys.CUSTOM_BH, "")
+		else:
+			# dotted
+			return "········"
+
 
 class CoreDecorFrontmatter(Core):
-	setting_enable_key = "enable_decor_frontmatter"
+	setting_enable_key = SettingKeys.ENABLE_FM
 	region_key = "frontmatter"
 	selector = "meta.frontmatter.block"
 
@@ -115,8 +133,10 @@ class HandyllmDecorFrontmatterListener(HandyllmBaseListener):
 
 
 listen_setting_keys = [
-	CoreDecorBlockHead.setting_enable_key,
-	CoreDecorFrontmatter.setting_enable_key,
+	SettingKeys.ENABLE_BH,
+	SettingKeys.ENABLE_FM,
+	SettingKeys.BH_STYLE,
+	SettingKeys.CUSTOM_BH,
 ]
 
 def update_all_views():
