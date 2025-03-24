@@ -11,5 +11,18 @@ for module_name in [
 del prefix
 
 from .plugins.new_file import *
-from .plugins.decor import *
 from .plugins.insert_frontmatter import *
+
+from .plugins.decor import (
+    HandyllmDecorBlockHeadListener,
+    HandyllmDecorFrontmatterListener,
+    plugin_loaded as decor_plugin_loaded,
+    plugin_unloaded as decor_plugin_unloaded
+)
+
+
+def plugin_loaded():
+    decor_plugin_loaded()
+
+def plugin_unloaded():
+    decor_plugin_unloaded()
