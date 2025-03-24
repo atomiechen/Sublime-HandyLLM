@@ -4,10 +4,6 @@ import sublime
 import sublime_plugin
 
 
-__all__ = [
-	'HandyllmNewFileCommand',
-]
-
 logger = logging.getLogger(__name__)
 
 hprompt_snippet=r"""---

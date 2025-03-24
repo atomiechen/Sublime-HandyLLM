@@ -10,9 +10,8 @@ for module_name in [
     del sys.modules[module_name]
 del prefix
 
-from .plugins.new_file import *
-from .plugins.insert_frontmatter import *
-
+from .plugins.new_file import HandyllmNewFileCommand
+from .plugins.insert_frontmatter import HandyllmInsertFrontmatterCommand
 from .plugins.decor import (
     HandyllmDecorBlockHeadListener,
     HandyllmDecorFrontmatterListener,

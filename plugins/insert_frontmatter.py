@@ -2,11 +2,6 @@ import sublime
 import sublime_plugin
 
 
-__all__ = [
-	'HandyllmInsertFrontmatterCommand',
-]
-
-
 class HandyllmInsertFrontmatterCommand(sublime_plugin.TextCommand):
 
 	def run(self, edit):
