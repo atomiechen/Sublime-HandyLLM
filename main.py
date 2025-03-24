@@ -13,7 +13,7 @@ del prefix
 from .plugins.new_file import HandyllmNewFileCommand
 from .plugins.insert_frontmatter import HandyllmInsertFrontmatterCommand
 from .plugins.decor import (
-    HandyllmDecorBlockHeadListener,
+    HandyllmUnderlineRoleListener,
     HandyllmDecorFrontmatterListener,
     plugin_loaded as decor_plugin_loaded,
     plugin_unloaded as decor_plugin_unloaded

@@ -8,10 +8,9 @@ handyllm_settings = sublime.load_settings("HandyLLM.sublime-settings")
 
 
 class SettingKeys:
-	ENABLE_BH = "enable_decor_block_head"
+	ENABLE_ROLE = "enable_underline_role"
 	ENABLE_FM = "enable_decor_frontmatter"
-	BH_STYLE = "decor_block_head_style"
-	CUSTOM_BH = "custom_decor_block_head"
+	ROLE_STYLE = "role_underline_style"
 
 
 class Core:
@@ -41,31 +40,26 @@ class Core:
 		)
 
 
-class CoreDecorBlockHead(Core):
-	setting_enable_key = SettingKeys.ENABLE_BH
-	region_key = "block_head"
-	selector = "meta.block.head"
+class CoreDecorRole(Core):
+	setting_enable_key = SettingKeys.ENABLE_ROLE
+	region_key = "role"
+	selector = "meta.block.role"
 
 	def decor(self, view, regions):
+		underline_style = handyllm_settings.get(SettingKeys.ROLE_STYLE)
+		underline_style = underline_style.lower()
+		if underline_style == "solid":
+			style_flag = sublime.DRAW_SOLID_UNDERLINE
+		elif underline_style == "stippled":
+			style_flag = sublime.DRAW_STIPPLED_UNDERLINE
+		elif underline_style == "squiggly":
+			style_flag = sublime.DRAW_SQUIGGLY_UNDERLINE
 		view.add_regions(
 			key=self.region_key,
 			regions=regions,
-			scope="meta.block.head",
-			flags=sublime.HIDDEN,
-			annotations=[self.get_annotation_str()]*len(regions),
-			annotation_color='#fff0',
+			scope="markup.heading",
+			flags=style_flag | sublime.DRAW_NO_FILL | sublime.DRAW_NO_OUTLINE,
 		)
-
-	@staticmethod
-	def get_annotation_str():
-		decor_style = handyllm_settings.get(SettingKeys.BH_STYLE)
-		if decor_style == "dash":
-			return "————————"
-		elif decor_style == "custom":
-			return handyllm_settings.get(SettingKeys.CUSTOM_BH, "")
-		else:
-			# dotted
-			return "········"
 
 
 class CoreDecorFrontmatter(Core):
@@ -114,10 +108,10 @@ class HandyllmBaseListener(sublime_plugin.ViewEventListener):
 		self.core.update_view(self.view)
 
 
-class HandyllmDecorBlockHeadListener(HandyllmBaseListener):
+class HandyllmUnderlineRoleListener(HandyllmBaseListener):
 	"""Decorating block heads."""
 
-	core = CoreDecorBlockHead()
+	core = CoreDecorRole()
 
 	def on_modified_async(self):
 		self.update_view()
@@ -133,14 +127,13 @@ class HandyllmDecorFrontmatterListener(HandyllmBaseListener):
 
 
 listen_setting_keys = [
-	SettingKeys.ENABLE_BH,
+	SettingKeys.ENABLE_ROLE,
 	SettingKeys.ENABLE_FM,
-	SettingKeys.BH_STYLE,
-	SettingKeys.CUSTOM_BH,
+	SettingKeys.ROLE_STYLE,
 ]
 
 def update_all_views():
-	core_bh = CoreDecorBlockHead()
+	core_bh = CoreDecorRole()
 	core_fm = CoreDecorFrontmatter()
 	for window in sublime.windows():
 		for view in window.views():

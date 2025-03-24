@@ -1,11 +1,9 @@
 {
 	// enable the decoration of invalid frontmatter area
 	"enable_decor_frontmatter": true,
-	// enable the decoration of block heads (e.g. $user$)
-	"enable_decor_block_head": true,
+	// enable underline of message roles (e.g. $user$)
+	"enable_underline_role": true,
 
-	// stype of block head decorations (dotted, dash, custom)
-	"decor_block_head_style": "dotted",
-	// define custom text to show if you choose "custom" above
-	"custom_decor_block_head": "",
+	// the underline style of roles if enabled (solid, stippled, squiggly)
+	"role_underline_style": "stippled",
 }

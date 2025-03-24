@@ -43,7 +43,7 @@ contexts:
   block_head:
     - meta_content_scope: meta.block.head
     - match: \$\w+\$
-      scope: markup.heading
+      scope: meta.block.role markup.heading
     - match: '{'
       push: extra_properties
     - match: '$'
