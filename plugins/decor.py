@@ -27,7 +27,11 @@ class HandyllmBaseListener(sublime_plugin.ViewEventListener):
 	def applies_to_primary_view_only(cls):
 		return False
 
-	def on_modified_base(self):
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
+		self.update_view()
+
+	def update_view(self):
 		regions = self.get_target_regions()
 		if handyllm_settings.get(self.setting_enable_key):
 			self.removed = False
@@ -60,7 +64,7 @@ class HandyllmDecorBlockHeadListener(HandyllmBaseListener):
 	selector = "meta.block.head"
 
 	def on_modified_async(self):
-		self.on_modified_base()
+		self.update_view()
 
 	def decor(self, regions):
 		self.view.add_regions(
@@ -81,7 +85,7 @@ class HandyllmDecorFrontmatterListener(HandyllmBaseListener):
 	selector = "meta.frontmatter.block"
 
 	def on_modified_async(self):
-		self.on_modified_base()
+		self.update_view()
 
 	def decor(self, regions):
 		if self.has_valid_frontmatter():
