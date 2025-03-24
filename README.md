@@ -9,7 +9,9 @@ The Sublime Text package for [HandyLLM](https://github.com/atomiechen/HandyLLM) 
 
 See screenshot below:
 
-![example screenshot](https://github.com/user-attachments/assets/4328c091-ce7e-4c7f-9e68-820c545307b2)
+<div align="middle">
+<img width="800" alt="screenshot_example" src="https://github.com/user-attachments/assets/1649511d-67a5-4534-bcc4-8a654257dff5" />
+</div>
 
 
 ### Run hprompt file
