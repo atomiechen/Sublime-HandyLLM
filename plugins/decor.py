@@ -23,6 +23,10 @@ class HandyllmBaseListener(sublime_plugin.ViewEventListener):
 	def is_applicable(cls, settings):
 		return settings.get('syntax') == 'Packages/HandyLLM/Hprompt.sublime-syntax'
 
+	@classmethod
+	def applies_to_primary_view_only(cls):
+		return False
+
 	def on_modified_base(self):
 		regions = self.get_target_regions()
 		if handyllm_settings.get(self.setting_enable_key):
