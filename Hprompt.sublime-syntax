@@ -51,7 +51,7 @@ contexts:
 
   extra_properties:
     - meta_scope: meta.block.extra_properties
-    - match: (\w+)\s*=\s*("[^"]*"|\''[^\'']*\'')
+    - match: (\w+)\s*=\s*("[^"]*"|'[^']*')
       captures:
         1: entity.other.attribute-name
         2: string.quoted
