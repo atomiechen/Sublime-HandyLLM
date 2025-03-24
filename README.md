@@ -1,17 +1,15 @@
 # HandyLLM (for Sublime Text)
 
-[![PyPI](https://img.shields.io/pypi/v/HandyLLM?logo=pypi&logoColor=white)](https://pypi.org/project/HandyLLM/)
-
-The Sublime Text package for [HandyLLM](https://github.com/atomiechen/HandyLLM) (>= 0.7.0).
+The Sublime Text package for [HandyLLM](https://github.com/atomiechen/HandyLLM) [![PyPI](https://img.shields.io/pypi/v/HandyLLM?logo=pypi&logoColor=white)](https://pypi.org/project/HandyLLM/).
 
 
 ## Features
 
 ### Hprompt syntax highlight
 
-See demo below:
+See screenshot below:
 
-![example screenshot](https://github.com/user-attachments/assets/375a28d8-d0b3-453c-aead-34e0f7dc7333)
+![example screenshot](https://github.com/user-attachments/assets/4328c091-ce7e-4c7f-9e68-820c545307b2)
 
 
 ### Run hprompt file
