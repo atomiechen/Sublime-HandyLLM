@@ -22,7 +22,7 @@ contexts:
       escape_captures:
         0: meta.frontmatter.end entity.other.frontmatter.end
     # match frontmatter at most once
-    - match: (?=.)
+    - match: (?=$|.)
       set: no_frontmatter
 
   no_frontmatter:

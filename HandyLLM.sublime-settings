@@ -1,0 +1,6 @@
+{
+	// enable the decoration of invalid frontmatter area
+	"enable_decor_frontmatter": true,
+	// enable the decoration of block heads (e.g. $user$)
+	"enable_decor_block_head": true,
+}

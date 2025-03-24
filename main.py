@@ -11,3 +11,5 @@ for module_name in [
 del prefix
 
 from .plugins.new_file import *
+from .plugins.decor import *
+from .plugins.insert_frontmatter import *

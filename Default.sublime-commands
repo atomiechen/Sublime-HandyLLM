@@ -1,9 +1,20 @@
 [
+  { "caption": "Preferences: HandyLLM Settings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/HandyLLM/HandyLLM.sublime-settings",
+      "default": "{\n\t$0\n}\n"
+    }
+  },
   {
     "caption": "HandyLLM: New Hprompt File",
     "command": "handyllm_new_file",
     "args": {
       "action": "hprompt"
     }
+  },
+  {
+    "caption": "HandyLLM: Insert Frontmatter",
+    "command": "handyllm_insert_frontmatter",
   }
 ]
