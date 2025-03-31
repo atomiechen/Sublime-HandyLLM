@@ -3,7 +3,7 @@
     "command": "edit_settings",
     "args": {
       "base_file": "${packages}/HandyLLM/HandyLLM.sublime-settings",
-      "default": "{\n\t$0\n}\n"
+      "default": "// HandyLLM Settings - User\n{\n\t$0\n}\n"
     }
   },
   {
