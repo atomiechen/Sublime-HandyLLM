@@ -80,13 +80,15 @@ class CoreDecorFrontmatter(Core):
 	@staticmethod
 	def has_valid_frontmatter(view):
 		region = view.find(
-			pattern=r'^---[^\S\r\n]*\n([\s\S]*?)\n---',
+			pattern=r'^---[^\S\r\n]*\n([\s\S]*?)\n---[^\S\r\n]*$',
 			start_pt=0,
 		)
-		if region.a == 0:
-			return True
-		else:
+		if region.a != 0:
 			return False
+		role_regions = view.find_by_selector(CoreDecorRole.selector)
+		if role_regions and region.b >= role_regions[0].a:
+			return False
+		return True
 
 
 class HandyllmBaseListener(sublime_plugin.ViewEventListener):
