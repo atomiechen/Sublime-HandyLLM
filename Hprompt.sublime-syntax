@@ -62,14 +62,14 @@ contexts:
 
   block_text_body:
     - match: .*
-      embed: Packages/HandyLLM/Embeddings/Markdown (for Hprompt).sublime-syntax
+      embed: Packages/HandyLLM/Embeddings/Markdown.sublime-syntax
       embed_scope: meta.block.text
       escape: '{{general_header}}'
       pop: true
 
   block_yaml_body:
     - match: .*
-      embed: Packages/HandyLLM/Embeddings/YAML (for Hprompt).sublime-syntax
+      embed: Packages/HandyLLM/Embeddings/YAML.sublime-syntax
       escape: '{{general_header}}'
       embed_scope: meta.block.yaml
       pop: true

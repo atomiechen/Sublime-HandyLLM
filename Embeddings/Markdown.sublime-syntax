@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 # http://www.sublimetext.com/docs/syntax.html
-scope: text.html.markdown
+scope: text.html.markdown.hprompt
 hidden: true
 
 version: 2
