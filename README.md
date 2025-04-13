@@ -1,6 +1,9 @@
 # HandyLLM (for Sublime Text)
 
-The Sublime Text package for [HandyLLM](https://github.com/atomiechen/HandyLLM) [![PyPI](https://img.shields.io/pypi/v/HandyLLM?logo=pypi&logoColor=white)](https://pypi.org/project/HandyLLM/).
+[![sublimepackage](https://img.shields.io/github/v/tag/atomiechen/Sublime-HandyLLM?logo=sublimetext&label=ST%20Package)][1]
+[![PyPI](https://img.shields.io/pypi/v/HandyLLM?logo=pypi&logoColor=white&color=white)][2]
+
+The Sublime Text package for [HandyLLM][3].
 
 
 ## Features
@@ -25,3 +28,8 @@ You can use the command palette to create a new hprompt file. Or you can just in
 ### Snippets
 
 Several snippets of template frontmatter, user message with image/audio, assistant response with tool, etc., are provided.
+
+
+[1]: https://packagecontrol.io/packages/HandyLLM
+[2]: https://pypi.org/project/HandyLLM/
+[3]: https://github.com/atomiechen/HandyLLM
